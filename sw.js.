@@ -1,4 +1,3 @@
-
 const CACHE_NAME = "rickroll-offline-v1";
 
 const FILES = [
