@@ -1,25 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Important Message</title>
+  <title>Important Message 🎁</title>
+
   <style>
     body {
       background: #111;
       color: white;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       text-align: center;
       padding: 40px 15px;
     }
-    button {
-      padding: 16px 30px;
-      border: 0;
-      border-radius: 12px;
-      font-size: 18px;
-      cursor: pointer;
+
+    h1 {
+      font-size: 28px;
     }
+
+    p {
+      color: #ccc;
+    }
+
     video {
       width: 100%;
       max-width: 500px;
       margin-top: 25px;
+      border-radius: 12px;
     }
+  </style>
+</head>
+
+<body>
+
+  <h1>🎁 You Have a Message!</h1>
+  <p>Something important is waiting for you...</p>
+
+  <video id="video" autoplay muted playsinline controls>
+    <source src="rickroll.mp4" type="video/mp4">
+    Your browser does not support video playback.
+  </video>
+
+  <p id="status">Loading your surprise...</p>
+
+  <script>
+    const video = document.getElementById("video");
+    const status = document.getElementById("status");
+
+    video.play()
+      .then(() => {
+        status.textContent =
+          "Video started! Tap the video to turn on sound.";
+      })
+      .catch(() => {
+        status.textContent =
+          "Autoplay was blocked. Press play to start the video.";
+      });
+
+    video.addEventListener("error", () => {
+      status.textContent =
+        "Video could not load. Please check your connection.";
+    });
+  </script>
+
+</body>
+</html>
